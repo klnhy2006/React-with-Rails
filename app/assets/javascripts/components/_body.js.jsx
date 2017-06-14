@@ -43,7 +43,7 @@ var Body = React.createClass({
 			} 
 		} 
 	)},
-	
+	 
 	updateItems(item) { 
 	//only adds the updated item to the end, not the correct position
 		var items = this.state.items.filter((i) => { return i.id != item.id }); 
