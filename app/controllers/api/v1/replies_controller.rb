@@ -18,7 +18,7 @@ class Api::V1::RepliesController < Api::V1::BaseController
 	private 
 
 	def reply_params 
-		params.require(:reply).permit(:id, :name, :description) 
+		params.require(:reply).permit(:id, :name, :description, :user_name) 
 	end 
 
 end

@@ -7,7 +7,8 @@ var AllReplies = React.createClass ({
 		var replies = this.props.replies.map ((reply) => {
 			return (
 				<div key = {reply.id}>
-					<Reply reply = {reply} handleDelete = {this.handleDelete.bind(this, reply.id)}/>
+					<Reply reply = {reply} handleDelete = {this.handleDelete.bind(this, reply.id)}
+					currentUser = {this.props.currentUser}/>
 				</div>
 			);
 		});

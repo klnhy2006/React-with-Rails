@@ -37,7 +37,7 @@ var Body = React.createClass({
 		return(
 			<div>
 				<NewItem user = {this.props.user} handleSubmit = {this.handleSubmit}/>
-				<AllItems current_user = {this.props.user} items = {this.state.items} handleDelete = {this.handleDelete} />
+				<AllItems currentUser = {this.props.user} items = {this.state.items} handleDelete = {this.handleDelete} />
 			</div>
 		);
 	}

@@ -36,13 +36,15 @@ var Comment = React.createClass ({
 	},
 	
 	render: function () {
+		var delete_button = (this.props.currentUser.name === this.props.commenting.user_name) ? <button onClick = {this.props.handleDelete}>Delete</button> : null;
 		return (
 			<div>
-				<h1>{this.props.commenting.name}</h1>
+				<h6>by {this.props.commenting.user_name}</h6>
+				<h4>{this.props.commenting.name}</h4>
 				<p>{this.props.commenting.content}</p>
-				<button onClick = {this.props.handleDelete}>Delete</button>
-				<AllReplies replies = {this.state.replies} handleDelete = {this.handleDelete} />
-				<NewReply handleSubmit = {this.handleSubmit} item_id = {this.props.commenting.item_id} id = {this.props.commenting.id} />
+				{delete_button}
+				<AllReplies replies = {this.state.replies} handleDelete = {this.handleDelete} currentUser = {this.props.currentUser}/>
+				<NewReply handleSubmit = {this.handleSubmit} item_id = {this.props.commenting.item_id} id = {this.props.commenting.id} user_name = {this.props.currentUser.name}/>
 			</div>
 		);
 	}

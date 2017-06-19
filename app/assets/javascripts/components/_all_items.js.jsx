@@ -4,11 +4,10 @@ var AllItems = React.createClass({
 	},
 	
 	render() {
-		var id = this.props.current_user.id;
 		var items = this.props.items.map((item) => {
 			return (
 				<div key = {item.id}>
-				<Item item = {item} currentId = {id}
+				<Item item = {item} currentUser = {this.props.currentUser}
 						handleDelete = {this.handleDelete.bind(this, item.id)}
 				/>
 				</div>

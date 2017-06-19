@@ -6,7 +6,7 @@ var NewReply = React.createClass ({
 		$.ajax({ 
 			url: '/api/v1/items/' + this.props.item_id +'/commentings/' + this.props.id + '/replies', 
 			type: 'POST', 
-			data: { reply: { name: name, description: description } }, 
+			data: { reply: { name: name, description: description, user_name: this.props.user_name } }, 
 			success: (response) => 
 				{ alert(response); this.props.handleSubmit( response ); } 
 		});

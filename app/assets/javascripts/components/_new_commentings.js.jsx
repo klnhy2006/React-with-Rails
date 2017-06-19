@@ -5,7 +5,7 @@ var NewCommenting = React.createClass({
 		$.ajax({ 
 			url: '/api/v1/items/' + this.props.id +'/commentings', 
 			type: 'POST', 
-			data: { comment: { name: name, content: description } }, 
+			data: { comment: { name: name, content: description, user_name: this.props.user_name } }, 
 			success: (response) => 
 				{ this.props.handleSubmit( response ); } 
 		});
