@@ -2,9 +2,8 @@ var Main = React.createClass({
 	render() { 
 		return ( 
 			<div> 
-			main
-			<Header /> 
-			<Body />
+			<Header user = {this.props.user} /> 
+			<Body user = {this.props.user}/>
 			</div> 
 		) 
 	} 

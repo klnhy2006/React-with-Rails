@@ -4,7 +4,8 @@ class Api::V1::ItemsController < Api::V1::BaseController
 	end 
 
 	def create 
-		respond_with :api, :v1, Item.create(item_params) 
+		@item = Item.create(item_params)
+		respond_with :api, :v1, @item 
 	end 
 
 	def destroy 
@@ -20,7 +21,7 @@ class Api::V1::ItemsController < Api::V1::BaseController
 	private 
 
 	def item_params 
-		params.require(:item).permit(:id, :name, :description) 
+		params.require(:item).permit(:id, :name, :description, :user_id, :user_name) 
 	end 
 
 end

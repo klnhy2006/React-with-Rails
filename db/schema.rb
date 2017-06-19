@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614202034) do
+ActiveRecord::Schema.define(version: 20170619192434) do
 
   create_table "commentings", force: :cascade do |t|
     t.string "name"
@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(version: 20170614202034) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.string "user_name"
+    t.index ["created_at"], name: "index_items_on_user_id_and_created_at"
   end
 
   create_table "replies", force: :cascade do |t|
@@ -42,6 +45,15 @@ ActiveRecord::Schema.define(version: 20170614202034) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["commenting_id"], name: "index_replies_on_commenting_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.index ["name"], name: "index_users_on_name", unique: true
   end
 
 end

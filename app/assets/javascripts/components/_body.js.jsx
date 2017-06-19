@@ -33,29 +33,11 @@ var Body = React.createClass({
 		this.setState({ items: newItems});
 	},
 	
-	handleUpdate(item) { 
-		$.ajax({ 
-			url: `/api/v1/items/${item.id}`, 
-			type: 'PUT', 
-			data: { item: item }, 
-			success: () => { 
-				this.updateItems(item); 
-			} 
-		} 
-	)},
-	 
-	updateItems(item) { 
-	//only adds the updated item to the end, not the correct position
-		var items = this.state.items.filter((i) => { return i.id != item.id }); 
-		items.push(item); 
-		this.setState({items: items }); 
-	},
-	
 	render () {
 		return(
 			<div>
-				<NewItem handleSubmit = {this.handleSubmit}/>
-				<AllItems items = {this.state.items} handleDelete = {this.handleDelete} onUpdate={this.handleUpdate}/>
+				<NewItem user = {this.props.user} handleSubmit = {this.handleSubmit}/>
+				<AllItems current_user = {this.props.user} items = {this.state.items} handleDelete = {this.handleDelete} />
 			</div>
 		);
 	}
