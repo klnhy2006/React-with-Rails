@@ -7,7 +7,7 @@ var Register = React.createClass ({
 			method: 'POST',
 			url: '/api/v1/users',
 			data: { user:{ name: name, password: password } },
-		});
+		}).done(()=>{alert("done")});
 	},
 		
 	render: function () {

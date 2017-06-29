@@ -6,7 +6,7 @@ class Api::V1::ItemsController < Api::V1::BaseController
 	def create 
 		@item = Item.create(item_params)
 		respond_with :api, :v1, @item 
-	end 
+	end
 
 	def destroy 
 		respond_with Item.destroy(params[:id]) 
